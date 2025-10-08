@@ -4,11 +4,17 @@ import React from 'react';
 const Hero = () => {
   return (
     <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden pt-16">
-      {/* Background com gradiente */}
-      <div className="absolute inset-0 bg-gradient-to-br from-preto via-cinza to-preto">
-        <div className="absolute inset-0 bg-preto/80"></div>
+      {/* Background Image com overlay */}
+      <div 
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat bg-fixed"
+        style={{
+          backgroundImage: 'url("/images/hero-background.png")',
+        }}
+      >
+        <div className="absolute inset-0 bg-preto/70"></div>
       </div>
 
+      {/* Resto do conteúdo permanece igual */}
       <div className="container mx-auto px-4 relative z-10 text-center">
         <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-branco mb-6 leading-tight">
           Estilo Clássico,{' '}
@@ -38,7 +44,7 @@ const Hero = () => {
             { value: '10+', label: '🎯 Anos Experiência', sub: 'Tradição e qualidade' },
             { value: '2K+', label: '💈 Clientes Satisfeitos', sub: 'Resultados que impressionam' },
           ].map((stat) => (
-            <div key={stat.label} className="text-center bg-preto/50 rounded-2xl p-6 border border-cinza hover:border-destaque transition-colors duration-300">
+            <div key={stat.label} className="text-center bg-preto/50 rounded-2xl p-6 border border-cinza hover:border-destaque transition-colors duration-300 backdrop-blur-sm">
               <div className="text-2xl font-bold text-destaque mb-2">{stat.value}</div>
               <div className="text-branco font-semibold mb-1">{stat.label}</div>
               <div className="text-branco/60 text-sm">{stat.sub}</div>
